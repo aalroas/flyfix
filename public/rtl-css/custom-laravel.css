@@ -1,0 +1,37 @@
+/*=========================================================================================
+    File Name: laravel-menu.scss
+    Description: laravel Specific menu styles
+    ----------------------------------------------------------------------------------------
+    Item Name: Kodatik CPanel
+
+    Author URL: https://kodatik.com
+==========================================================================================*/
+
+/*========================================================
+        DARK LAYOUT
+=========================================================*/
+
+body.vertical-layout.vertical-menu-modern .horizontal-menu-wrapper {
+  display: none;
+}
+
+.horizontal-menu > .main-menu {
+  display: none;
+}
+
+.horizontal-menu .fixed-top {
+  right: 0;
+}
+
+html body.navbar-static .app-content .header-navbar {
+  background: transparent;
+  box-shadow: none !important;
+}
+
+@media (max-width: 575.98px) {
+  body.vertical-layout:not(.horizontal-layout).navbar-floating .header-navbar {
+    margin-right: 1.2rem;
+    margin-left: 1.2rem;
+  }
+}
+
