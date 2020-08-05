@@ -15,8 +15,18 @@
         <link rel="stylesheet" href="{{ asset(mix('css/pages/dashboard-analytics.css')) }}">
         <link rel="stylesheet" href="{{ asset(mix('css/pages/card-analytics.css')) }}">
         <link rel="stylesheet" href="{{ asset(mix('css/plugins/tour/tour.css')) }}">
-  @endsection
 
+
+
+  @endsection
+<script>
+        (function(w,d,s,g,js,fs){
+                g=w.gapi||(w.gapi={});g.analytics={q:[],ready:function(f){this.q.push(f);}};
+                js=d.createElement(s);fs=d.getElementsByTagName(s)[0];
+                js.src='https://apis.google.com/js/platform.js';
+                fs.parentNode.insertBefore(js,fs);js.onload=function(){g.load('analytics');};
+              }(window,document,'script'));
+      </script>
   @section('content')
     {{-- Dashboard Analytics Start --}}
     <section id="dashboard-analytics">
@@ -42,34 +52,12 @@
         </div>
           <div class="col-lg-3 col-md-6 col-12">
             <div class="card">
-              <div class="card-header d-flex flex-column align-items-start pb-0">
-                  <div class="avatar bg-rgba-primary p-50 m-0">
-                      <div class="avatar-content">
-                          <i class="feather icon-users text-primary font-medium-5"></i>
-                      </div>
-                  </div>
-                  <h2 class="text-bold-700 mt-1 mb-25">92.6k</h2>
-                  <p class="mb-0">Subscribers Gained</p>
-              </div>
-              <div class="card-content">
-                  <div id="subscribe-gain-chart"></div>
-              </div>
+              <div id="embed-api-auth-container"></div>
             </div>
           </div>
           <div class="col-lg-3 col-md-6 col-12">
             <div class="card">
-                <div class="card-header d-flex flex-column align-items-start pb-0">
-                    <div class="avatar bg-rgba-warning p-50 m-0">
-                        <div class="avatar-content">
-                            <i class="feather icon-package text-warning font-medium-5"></i>
-                        </div>
-                    </div>
-                    <h2 class="text-bold-700 mt-1 mb-25">97.5K</h2>
-                    <p class="mb-0">Orders Received</p>
-                </div>
-                <div class="card-content">
-                    <div id="orders-received-chart"></div>
-                </div>
+               <div id="chart-container"></div>
             </div>
           </div>
       </div>
@@ -79,31 +67,7 @@
               <div class="card-content">
                   <div class="card-body">
                       <div class="row pb-50">
-                          <div class="col-lg-6 col-12 d-flex justify-content-between flex-column order-lg-1 order-2 mt-lg-0 mt-2">
-                              <div>
-                                  <h2 class="text-bold-700 mb-25">2.7K</h2>
-                                  <p class="text-bold-500 mb-75">Avg Sessions</p>
-                                  <h5 class="font-medium-2">
-                                      <span class="text-success">+5.2% </span>
-                                      <span>vs last 7 days</span>
-                                  </h5>
-                              </div>
-                              <a href="#" class="btn btn-primary shadow">View Details <i class="feather icon-chevrons-right"></i></a>
-                          </div>
-                          <div class="col-lg-6 col-12 d-flex justify-content-between flex-column text-right order-lg-2 order-1">
-                              <div class="dropdown chart-dropdown">
-                                  <button class="btn btn-sm border-0 dropdown-toggle p-0" type="button" id="dropdownItem5"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Last 7 Days
-                                  </button>
-                                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownItem5">
-                                    <a class="dropdown-item" href="#">Last 28 Days</a>
-                                    <a class="dropdown-item" href="#">Last Month</a>
-                                    <a class="dropdown-item" href="#">Last Year</a>
-                                  </div>
-                              </div>
-                              <div id="avg-session-chart"></div>
-                          </div>
+                         <div id="view-selector-container"></div>
                       </div>
                       <hr/>
                       <div class="row avg-sessions pt-50">
@@ -483,3 +447,60 @@
         <!-- Page js files -->
         <script src="{{ asset(mix('js/scripts/pages/dashboard-analytics.js')) }}"></script>
 @endsection
+<script>
+  gapi.analytics.ready(function() {
+
+  /**
+   * Authorize the user immediately if the user has already granted access.
+   * If no access has been created, render an authorize button inside the
+   * element with the ID "embed-api-auth-container".
+   */
+  gapi.analytics.auth.authorize({
+    container: 'embed-api-auth-container',
+    clientid: '108155935673364393864'
+  });
+
+
+  /**
+   * Create a new ViewSelector instance to be rendered inside of an
+   * element with the id "view-selector-container".
+   */
+  var viewSelector = new gapi.analytics.ViewSelector({
+    container: 'view-selector-container'
+  });
+
+  // Render the view selector to the page.
+  viewSelector.execute();
+
+
+  /**
+   * Create a new DataChart instance with the given query parameters
+   * and Google chart options. It will be rendered inside an element
+   * with the id "chart-container".
+   */
+  var dataChart = new gapi.analytics.googleCharts.DataChart({
+    query: {
+      metrics: 'ga:sessions',
+      dimensions: 'ga:date',
+      'start-date': '30daysAgo',
+      'end-date': 'yesterday'
+    },
+    chart: {
+      container: 'chart-container',
+      type: 'LINE',
+      options: {
+        width: '100%'
+      }
+    }
+  });
+
+
+  /**
+   * Render the dataChart on the page whenever a new view is selected.
+   */
+  viewSelector.on('change', function(ids) {
+    dataChart.set({query: {ids: ids}}).execute();
+  });
+
+});
+</script>

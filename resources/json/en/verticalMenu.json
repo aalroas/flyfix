@@ -4,140 +4,34 @@
       "url": "/admin/dashboard",
       "name": "Dashboard",
       "slug": "dashboard",
-      "badge": "2",
       "badgeClass": "badge badge-warning badge-pill float-right mr-2",
-      "icon": "feather icon-home",
-      "submenu": [
-        {
-          "url": "/admin/dashboard",
-          "name": "Analytics",
-          "icon": "feather icon-circle",
-          "i18n": "nav.dashboard_analytics"
-        },
-        {
-          "url": "/admin/dashboard2",
-          "name": "eCommerce",
-          "icon": "feather icon-circle",
-          "i18n": "nav.dashboard_ecommerce"
-        }
-      ]
+      "icon": "feather icon-home"
     },
     {
-      "url": "/admin/",
-      "navheader": "Apps",
+      "url": "/admin/auth/user",
+      "navheader": "User Management",
       "icon": ""
     },
     {
-      "url": "/admin/app-email",
-      "name": "Email",
-      "icon": "feather icon-mail",
-      "i18n": "nav.app_email"
+      "url": "/admin/auth/user",
+      "name": "Users",
+      "icon": "feather icon-users"
     },
     {
-      "url": "/admin/app-chat",
-      "name": "Chat",
-      "icon": "feather icon-message-square",
-      "i18n": "nav.app_chat"
+      "url": "/admin/auth/role",
+      "name": "Roles",
+      "icon": "feather icon-shield"
     },
+
     {
-      "url": "/admin/app-todo",
-      "name": "Todo",
-      "icon": "feather icon-check-square",
-      "i18n": "nav.app_todo"
-    },
-    {
-      "url": "/admin/app-calender",
-      "name": "Calender",
-      "icon": "feather icon-calendar",
-      "i18n": "nav.app_calender"
-    },
-    {
-      "url": "/admin/app-file-manager",
-      "name": "File Manager",
-      "icon": "feather icon-save",
-      "i18n": "nav.app_calender"
-    },
-    {
-      "url": "/admin/",
-      "name": "Ecommerce",
-      "icon": "feather icon-shopping-cart",
-      "submenu": [
-        {
-          "url": "/admin/app-ecommerce-shop",
-          "name": "Shop",
-          "icon": "feather icon-circle",
-          "i18n": "nav.app_ecommerce_shop"
-        },
-        {
-          "url": "/admin/app-ecommerce-details",
-          "name": "Details",
-          "icon": "feather icon-circle",
-          "i18n": "nav.app_ecommerce_details"
-        },
-        {
-          "url": "/admin/app-ecommerce-wishlist",
-          "name": "Wish List",
-          "icon": "feather icon-circle",
-          "i18n": "nav.app_ecommerce_wishlist"
-        },
-        {
-          "url": "/admin/app-ecommerce-checkout",
-          "name": "Checkout",
-          "icon": "feather icon-circle",
-          "i18n": "nav.app_ecommerce_checkout"
-        }
-      ]
-    },
-    {
-      "url": "/admin/",
-      "name": "User",
-      "icon": "feather icon-unlock",
-      "submenu": [
-        {
-          "url": "/admin/app-user-list",
-          "name": "List",
-          "icon": "feather icon-circle",
-          "i18n": "nav.app_user_list"
-        },
-        {
-          "url": "/admin/app-user-view",
-          "name": "View",
-          "icon": "feather icon-circle",
-          "i18n": "nav.app_user_view"
-        },
-        {
-          "url": "/admin/app-user-edit",
-          "name": "Edit",
-          "icon": "feather icon-circle",
-          "i18n": "nav.app_user_edit"
-        }
-      ]
-    },
-    {
-      "url": "/admin/",
-      "navheader": "UI Elements",
+      "url": "/admin/products",
+      "navheader": "Product Management",
       "icon": ""
     },
     {
-      "url": "/admin/",
-      "name": "Data List",
-      "badge": "New",
-      "badgeClass": "badge badge-primary badge-pill float-right mr-2",
-      "icon": "feather icon-list",
-      "submenu": [
-        {
-          "url": "/admin/data-list-view",
-          "name": "List View",
-          "icon": "feather icon-circle",
-          "i18n": "nav.data_list_view"
-        },
-        {
-          "url": "/admin/data-thumb-view",
-          "name": "Thumb View",
-          "icon": "feather icon-circle",
-          "i18n": "nav.data_thumb_view"
-        }
-      ]
+      "url": "/admin/products",
+      "name": "Product List",
+      "icon": "feather icon-shopping-cart"
     },
     {
       "url": "/admin/",

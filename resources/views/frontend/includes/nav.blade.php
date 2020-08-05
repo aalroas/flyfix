@@ -72,15 +72,15 @@
 
                             @if ($logged_in_user->isUser())
                                 <x-utils.link
-                                    :href="route('frontend.user.dashboard')"
-                                    :active="activeClass(Route::is('frontend.user.dashboard'))"
+                                    :href="route('admin.dashboard')"
+                                    :active="activeClass(Route::is('admin.dashboard'))"
                                     :text="__('Dashboard')"
                                     class="dropdown-item"/>
                             @endif
 
                             <x-utils.link
-                                :href="route('frontend.user.account')"
-                                :active="activeClass(Route::is('frontend.user.account'))"
+                                :href="route('admin.auth.user.account')"
+                                :active="activeClass(Route::is('admin.auth.user.account'))"
                                 :text="__('My Account')"
                                 class="dropdown-item" />
 

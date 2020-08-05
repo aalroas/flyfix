@@ -72,11 +72,7 @@ class UsersTable extends TableComponent
                 ->sortable(function ($builder, $direction) {
                     return $builder->orderBy('email_verified_at', $direction);
                 }),
-            Column::make(__('2FA'))
-                ->view('backend.auth.user.includes.2fa', 'user')
-                ->sortable(function ($builder, $direction) {
-                    return $builder->orderBy('two_factor_auth_count', $direction);
-                }),
+
             Column::make(__('Roles'), 'roles_label')
                 ->customAttribute()
                 ->html()

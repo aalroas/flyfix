@@ -1,0 +1,88 @@
+Product Management:
+Category Of Product:
+- Bebek Bezi
+- Islak Mandil
+
+Category DB Table:
+- id
+- image
+- date time
+
+Category Translation DB Table:
+- type_id
+- local
+- name
+
+Type Of Product:
+- Yeni Dogan
+- Mini
+- Midi
+- Mixi
+- Junior
+
+Type DB Table:
+- id
+- type_number
+- date time
+
+Type Translation DB Table:
+- type_id
+- local
+- name
+- weight
+
+Package Of Product:
+- Economi
+- twin
+- Jumbo
+- Mixi
+- Mega
+
+Package DB Table:
+- id
+- image_1
+- image_2
+- date time
+
+Package Translation DB Table:
+- package_id
+- local
+- name
+
+Feature Of Product:
+Feature DB Table:
+- id
+- image
+- date time
+
+Feature Translation DB Table:
+- feature_id
+- local
+- name
+
+
+
+Bebek Dunyasi:
+Bebek Dunyasi DB Table:
+- id
+- image
+- date time
+
+Bebek Dunyasi Translation DB Table:
+- bebek_dunyasi_id
+- local
+- title
+- text
+
+Video:
+Video DB Table:
+- id
+- url
+- date time
+
+Video Translation DB Table:
+- video_id
+- local
+- title
+- text
+

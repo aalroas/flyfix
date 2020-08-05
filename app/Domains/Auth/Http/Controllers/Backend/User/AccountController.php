@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Frontend\User;
+namespace App\Domains\Auth\Http\Controllers\Backend\User;
 
 use App\Http\Controllers\Controller;
 
@@ -17,7 +17,7 @@ class AccountController extends Controller
     $breadcrumbs = [
       ['link' => "/account", 'name' => "Account"], ['name' => "Account Settings"]
     ];
-    return view('frontend.user.account', [
+    return view('backend.user.account', [
       'breadcrumbs' => $breadcrumbs
     ]);
 

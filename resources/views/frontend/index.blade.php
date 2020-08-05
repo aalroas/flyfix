@@ -77,10 +77,10 @@
             <div class="top-right links">
                 @auth
                     @if ($logged_in_user->isUser())
-                        <a href="{{ route('frontend.user.dashboard') }}">@lang('Dashboard')</a>
+                        <a href="{{ route('admin.dashboard') }}">@lang('Dashboard')</a>
                     @endif
 
-                    <a href="{{ route('frontend.user.account') }}">@lang('Account')</a>
+                    <a href="{{ route('admin.auth.user.account') }}">@lang('Account')</a>
                 @else
                     <a href="{{ route('frontend.auth.login') }}">@lang('Login')</a>
 

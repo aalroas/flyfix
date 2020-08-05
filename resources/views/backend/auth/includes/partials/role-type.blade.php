@@ -6,7 +6,7 @@
                 id="role_{{ $role->id }}"
                 value="{{ $role->id }}"
                 class="form-check-input"
-                type="checkbox"
+                type="checkbox" checked disabled
                 {{ (old('rules') && in_array($role->id, old('rules'), true)) || (isset($user) && in_array($role->id, $user->roles->modelKeys(), true)) ? 'checked' : '' }} />
 
             <label class="form-check-label" for="role_{{ $role->id }}">

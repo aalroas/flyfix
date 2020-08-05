@@ -5,6 +5,8 @@ use App\Domains\Auth\Models\Role;
 use App\Domains\Auth\Models\User;
 use App\Domains\Auth\Http\Controllers\Backend\Role\RoleController;
 use App\Domains\Auth\Http\Controllers\Backend\User\UserController;
+use App\Domains\Auth\Http\Controllers\Backend\User\AccountController;
+use App\Domains\Auth\Http\Controllers\Backend\User\ProfileController;
 use App\Domains\Auth\Http\Controllers\Backend\User\DeletedUserController;
 use App\Domains\Auth\Http\Controllers\Backend\User\UserSessionController;
 use App\Domains\Auth\Http\Controllers\Backend\User\UserPasswordController;
@@ -20,6 +22,20 @@ Route::group([
     'prefix' => 'user',
     'as' => 'user.',
   ], function () {
+
+
+
+    Route::get('account', [AccountController::class, 'index'])
+      ->name('account')
+      ->breadcrumbs(function (Trail $trail) {
+        $trail->parent('admin.auth.user.index')
+          ->push(__('My Account'), route('admin.auth.user.account'));
+      });
+
+    Route::patch('profile/update', [ProfileController::class, 'update'])->name('profile.update');
+
+
+
     Route::group([
       'middleware' => 'role:' . config('kodatik.access.role.admin'),
     ], function () {

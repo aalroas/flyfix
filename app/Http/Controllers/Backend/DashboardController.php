@@ -42,30 +42,7 @@ class DashboardController extends Controller
         ]);
     }
 
-  /**
-   * @return \Illuminate\View\View
-   */
-  public function ajax_request(Request $request)
-  {
 
-
-    if ($request->ajax()) {
-      $period = $request->get('period');
-      if($period==1){
-        $user_types = Analytics::fetchUserTypes(Period::days(7));
-
-      }elseif ($period==2) {
-        $user_types = Analytics::fetchUserTypes(Period::months(1));
-      }else {
-        $user_types = Analytics::fetchUserTypes(Period::years(1));
-      }
-      return Response::json(array(
-        'success' => true,
-        'data'   => "hello"
-      ));
-
-    }
-  }
 
 
 }

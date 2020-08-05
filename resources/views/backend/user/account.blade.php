@@ -72,7 +72,7 @@
                            height="120"
                            width="120">
                   </a>
-                    <form action="{{route('frontend.user.profile.update')}}" method="post"   enctype="multipart/form-data">
+                    <form action="{{route('admin.auth.user.profile.update')}}" method="post"   enctype="multipart/form-data">
                   @csrf
                   @method('patch')
                   <div class="media-body mt-75">

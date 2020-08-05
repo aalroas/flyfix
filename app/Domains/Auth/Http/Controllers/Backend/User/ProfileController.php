@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Frontend\User;
+namespace App\Domains\Auth\Http\Controllers\Backend\User;
 
 use Illuminate\Http\Request;
 use App\Domains\Auth\Models\User;
@@ -47,36 +47,12 @@ class ProfileController extends Controller
       $userService->updateProfile($request->user(), $request->validated());
 
       if (session()->has('resent')) {
-          return redirect()->route('frontend.auth.verification.notice')->withFlashInfo(__('You must confirm your new e-mail address before you can go any further.'));
+          return redirect()->route('backend.auth.verification.notice')->withFlashInfo(__('You must confirm your new e-mail address before you can go any further.'));
       }
-      return  redirect()->route('frontend.user.account', ['#information'])->withFlashSuccess(__('Profile successfully updated.'));
+      return  redirect()->route('admin.auth.user.account', ['#information'])->withFlashSuccess(__('Profile successfully updated.'));
     }
 
-  /**
-   * Update the specified resource in storage.
-   *
-   * @param  \Illuminate\Http\Request  $request
-   * @param  int  $id
-   * @return \Illuminate\Http\Response
-   */
-  public function update_preferences(Request $request)
-  {
-    $userP =  UserPreferences::where('user_id', '=' , Auth::user()->id)->first();
-    $userP->theme = "sad";
-    $userP->sidebarCollapsed = true;
-    $userP->navbarColor = "dasd";
-    $userP->verticalMenuNavbarType = "sadas";
-    $userP->footerType = "sdas";
-    $userP->defaultLanguage = "ar";
-    if($request->defaultLanguage == 'ar'){
-      $userP->direction = "rtl";
-    }else{
-      $userP->direction = "ltr";
-    }
-    $userP->save();
-    return response()->json(['success' => 'Ajax request submitted successfully']);
 
-  }
 
 
 
