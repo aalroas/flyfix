@@ -5,6 +5,7 @@
 @section('title', 'Edit User Page')
 
 @section('content')
+@include('includes.partials.messages')
     <x-forms.patch :action="route('admin.auth.user.update', $user)">
         <x-backend.card>
             <x-slot name="header">

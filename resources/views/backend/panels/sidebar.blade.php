@@ -7,9 +7,13 @@ $configData = Helper::applClasses();
   <div class="navbar-header">
     <ul class="nav navbar-nav flex-row">
       <li class="nav-item mr-auto">
-        <a class="navbar-brand" href="dashboard-analytics">
-          <div class="brand-logo"></div>
-          <h2 class="brand-text mb-0">Vuexy</h2>
+        <a class="navbar-brand" href="{{route('admin.dashboard')}}">
+
+          <img src="{{ asset(Helper::GeneralSiteSettings('site_logo'))}}" style="width: 114px;
+    height: auto;
+    text-align: center;
+    margin-top: -22px;" alt="{{ Helper::GeneralSiteSettings('site_title')}}">
+
         </a>
       </li>
       <li class="nav-item nav-toggle">

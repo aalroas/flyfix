@@ -1,6 +1,7 @@
 <?php
 
 use Tabuna\Breadcrumbs\Trail;
+use App\Http\Controllers\Backend\SettingController;
 use App\Http\Controllers\Backend\DashboardController;
 
 
@@ -20,4 +21,10 @@ Route::get('dashboard2', [DashboardController::class, 'index2'])
   ->breadcrumbs(function (Trail $trail) {
     $trail->push(__('Home'), route('admin.dashboard2'));
   });
+
+
+
+
+Route::get('setting', [SettingController::class, 'edit'])->name('setting.edit');
+Route::post('setting',[SettingController::class, 'updateSiteInfo'])->name('setting.UpdateSiteInfo');
 

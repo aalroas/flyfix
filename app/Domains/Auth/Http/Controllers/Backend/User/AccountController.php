@@ -15,13 +15,10 @@ class AccountController extends Controller
     public function index()
     {
     $breadcrumbs = [
-      ['link' => "/account", 'name' => "Account"], ['name' => "Account Settings"]
+      ['link' => "/admin", 'name' => "Home"], ['name' => "Account Settings"]
     ];
     return view('backend.user.account', [
       'breadcrumbs' => $breadcrumbs
     ]);
-
-
-
     }
 }

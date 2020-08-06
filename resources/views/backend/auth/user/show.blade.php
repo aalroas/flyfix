@@ -3,6 +3,8 @@
 @section('title', 'View User')
 
 @section('content')
+
+@include('includes.partials.messages')
     <x-backend.card>
         <x-slot name="header">
             @lang('View User')

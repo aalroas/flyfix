@@ -3,9 +3,19 @@
 namespace App\Helpers;
 
 use Config;
+use App\Models\Backend\Setting;
 
 class Helper
 {
+
+
+  public  static function  GeneralSiteSettings($var)
+  {
+    $Setting = Setting::find(1);
+    return $Setting->$var;
+  }
+
+
   public static function applClasses()
   {
     // Demo

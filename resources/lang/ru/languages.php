@@ -1,10 +1,10 @@
 <?php
 
-return [
-  'english' => 'English',
-  'turkish' => 'Turkish',
-  'french' => 'French',
-  'russian' => 'Russian',
-  'arabic' => 'Arabic',
-  'persian' => 'Persian',
-];
+return array (
+  'english' => 'английский',
+  'turkish' => 'турецкий',
+  'french' => 'французский язык',
+  'russian' => 'русский',
+  'arabic' => 'арабский',
+  'persian' => 'персидский',
+);

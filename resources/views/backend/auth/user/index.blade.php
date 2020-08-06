@@ -3,6 +3,7 @@
 @section('title', 'User List Page')
 
 @section('content')
+@include('includes.partials.messages')
     <x-backend.card>
         <x-slot name="header">
             @lang('User Management')

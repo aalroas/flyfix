@@ -182,6 +182,7 @@ return [
 
 
        App\Providers\MenuServiceProvider::class,
+      'Barryvdh\TranslationManager\ManagerServiceProvider',
 
     ],
 
